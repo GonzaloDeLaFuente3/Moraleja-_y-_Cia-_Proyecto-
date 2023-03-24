@@ -1,0 +1,187 @@
+
+/*CSS COLORES*/
+
+.verde-claro{
+    background-color: #7cb518;
+}
+
+.verde-oscuro{
+    background-color: #5c8001;
+}
+
+/*LOGO ENCABEZADO*/
+
+#logo img{
+    height: 57px;
+}
+
+header{
+    height: 70px;
+}
+
+/*BANDERA*/
+
+.flag img{
+    height: 27px;
+}
+
+#google_element select{
+ background: #f8f9fa;
+ color: black;
+ border: none;
+ border-radius:3px;
+ padding:6px 8px
+ }
+ .VIpgJd-ZVi9od-l4eHX-hSRGPd, .VIpgJd-ZVi9od-ORHb-OEVmcd{
+ display:none !important;
+ }
+
+ .goog-te-gadget{
+    color:transparent!important;
+    user-select: none;
+ }
+
+.goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb{
+ display:none !important;
+ }
+
+ #goog-gt-tt, .goog-te-balloon-frame, .VIpgJd-suEOdc{display: none !important;}
+.goog-text-highlight { background: none !important; box-shadow: none !important;}
+
+
+
+/*CSS PIE DE PAGINA*/
+
+
+
+
+#navFooter{
+    margin-block: 2rem;
+}
+
+a{
+    color: white;
+  }
+
+a:hover{
+    color: grey;
+  }
+
+/*ICONO FOOTER*/
+#icono{
+    margin-inline: 1rem;
+    width: 40px;
+}
+
+
+/*FUENTES*/
+
+@font-face {
+    font-family: thewestgate;
+    src: url(/static/resources/The\ West\ Gate.ttf) format('truetype');
+}
+
+/*-----------------HEADER---------------*/
+/*-------BOTONES ENCABEZADO---------------*/
+
+.notificaciones{
+    margin-inline: 0.5rem;
+}
+
+
+
+
+
+/*-----------------LABELS HEADER---------------*/
+/*LABEL INICIO*/ /*LABEL MENUS*/
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link,
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+
+/*HOVER LABEL INICIO Y MENUS*/ /*FOCUS MENUS*/
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus{
+    color: grey;
+}
+
+
+
+@media (min-width: 768px){
+    #logo{
+        width: 55px;
+        margin-right: 2rem;
+        margin-left: 2rem;
+    }
+  }
+
+
+
+/*-------------------------------------*/
+
+/*-----------------FOOTER---------------*/
+
+
+
+/*LABEL ROTISERIA 2022, TODOS LOS DERECHOS RESERVADOS*/
+
+#labelFooter{
+    color: white;
+    text-align: center;
+}
+
+/*-------------------------------------*/
+
+body{
+    align-items: center;
+    justify-content: center;
+    margin-top: 3.3rem;
+}
+
+/*------------------DISEÑO RESPONSIVO ENCABEZADO------------------*/
+/*QUE SE APLIQUE TODO ESTO HASTA QUE SE LLEGUE COMO MINIMO A min-width*/
+
+@media (min-width: 768px) {
+    body{
+        margin-top: 4.3rem;
+    }
+}
+
+@media (min-width: 1040px){
+    .navbar-lg .navbar-collapse {
+        display: flex!important;
+        flex-basis: auto;
+    }
+
+    .navbar-lg {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+
+    /*ELEMENTOS IZQUIERDA*/
+    .navbar-lg .navbar-nav {
+        flex-direction: row;
+    }
+
+    /*NAVBAR IZQUIERDA MARGENES*/
+    .mb-md-0 {
+        margin-bottom: 0!important;
+    }
+
+    /*TOGGLER NAVBAR MENU*/
+    .navbar-lg .navbar-toggler {
+        display: none;
+    }
+
+    /*LABEL INICIO Y MENU*/
+    .navbar-lg .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .navbar-lg .navbar-nav .dropdown-menu {
+        position: absolute;
+    }
+}
+
+/*----------------------------------------*/
