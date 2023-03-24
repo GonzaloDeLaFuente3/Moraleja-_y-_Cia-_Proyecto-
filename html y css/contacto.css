@@ -1,36 +1,29 @@
-.iconos {
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    
-}
-/* img {
-    width: 100px;
-} */
 
-#filtroFondo{
-    backdrop-filter: blur(10px);
-  }
+
+
+
 
 body {
-    background-image: url(../Template/Resources/Navegacion/food.jpg);
+    background-color:  #fff
+;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    backdrop-filter: blur(10px);
 
 }
 .formulario{
-    background: #EDF6F9;
+    background: #FBB02D;
     border-radius: 2rem;
 }
-.logos {
-    margin-inline: 1rem;
-    width: 44px;
+.contenedor{
+    border-radius: 0.8rem;
+    background-color: #e35300;
 }
-a:link{
-    color: blue;
+.mapa{
+    border-radius: 2%;
 }
-a:link:hover{
-    color: rgb(129, 129, 255);
+h1,h3,p,h4,small,label{
+    color: white;
 }
+
