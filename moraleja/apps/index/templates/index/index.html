@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block titulo %} Moraleja Y Compañia {% endblock %}
+{% block css %}{% endblock %}
+
+{% block contenido %}
+  <h1>Tutorial de youtube para <span class="kw" translate="no"> moraleja</span></h1>
+  <h3>Está funcionando en index</h3>
+  {{configuraciones.telefono1}}
+  {% for producto in productos %}
+    <h3>{{producto.nombre}}</h3>
+
+    {% if producto.imagen %}
+      <img src="{{ producto.imagen.url }}" style="height: 50px; width: 50px;" alt="...">
+    {% else %}
+      <img src="" style="height: 50px; width: 50px;" alt="no imagen">
+    {% endif %}
+
+  {% endfor %}
+
+
+
+{% endblock %}
+
+{% block js %}{% endblock %}
