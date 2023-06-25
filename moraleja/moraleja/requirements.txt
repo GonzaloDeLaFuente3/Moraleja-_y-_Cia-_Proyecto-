@@ -5,3 +5,9 @@ psycopg2-binary==2.9.5
 Pillow == 9.5.0
 
 django-admin-interface
+
+django-autoslug == 1.9.9
+
+django-solo
+
+django-colorfield

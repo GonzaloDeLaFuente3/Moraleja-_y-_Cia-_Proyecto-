@@ -1,34 +1,18 @@
 from django.shortcuts import render
-
-from apps.producto.models import Producto
-
-from apps.seccion.models import Seccion
+from apps.seccion.models import Nosotros, Historia, Servicios
 
 
 # Create your views here.
 
 def index(request):
-    productos = Producto.objects.all()
-    secciones = Seccion.objects.all()
+    nosotros = Nosotros.objects.first()
+    historia = Historia.objects.first()
+    servicios = Servicios.objects.all()
     data = {
-        'productos': productos,
-        'secciones':secciones
+        'nosotros':nosotros,
+        'historia': historia,
+        'servicios': servicios,
     }
 
-    # if request.user.is_authenticated:
-    #     clientes = Cliente.objects.all()
-    #     clienteTemp
-    #     for cliente in clientes:
-    #         if cliente.usuario == User.objects.get(username=request.user.username):
-    #             clienteTemp = cliente
-    #
-    #     if clienteTemp != None:
-    #         pedidos = Pedido.objects.filter(cliente=Cliente.objects.get(cuil=clienteTemp.cuil))
-    #         data = {
-    #             'platos': platos,
-    #             'clientes': clientes,
-    #             'pedidos': pedidos
-    #         }
-
-
     return render(request, 'index/index.html', data)
+

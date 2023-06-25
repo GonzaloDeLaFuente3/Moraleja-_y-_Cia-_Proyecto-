@@ -8,5 +8,5 @@ class Noticia(models.Model):
     titular = models.CharField(max_length=200)
     autor_a = models.CharField(max_length=200)
     cuerpo = models.TextField(max_length=2000)
-    imagen = models.ImageField(upload_to="admin-interface/img", blank=True)
+    imagen = models.ImageField(upload_to="media/noticias", blank=True)
     epigrafe = models.CharField(max_length=200)

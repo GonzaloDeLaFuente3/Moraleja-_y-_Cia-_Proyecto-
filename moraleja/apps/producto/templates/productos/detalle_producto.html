@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block titulo %} {{ producto.nombre}} {% endblock %}
+{% block page_header %}
+    <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <h1 class="display-3 mb-3 animated slideInDown">{{ producto.nombre}}</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'index:index' %}">Inicio</a></li>
+                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:productos' %}">Productos</a></li>
+                    <li class="breadcrumb-item text-dark active" aria-current="page">{{ producto.nombre}}</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+{% block contenido %}
+
+<div class="d-flex justify-content-center my-5">
+  <a href="{% url 'producto:beneficio_producto' producto.slug %}" class="btn btn-primary me-2">Beneficio</a>
+  <a href="{% url 'producto:receta_producto' producto.slug %}" class="btn btn-secondary">Recetas saludables</a>
+</div>
+
+{% endblock %}

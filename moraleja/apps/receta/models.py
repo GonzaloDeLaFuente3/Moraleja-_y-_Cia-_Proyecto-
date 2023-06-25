@@ -12,4 +12,4 @@ class Receta(models.Model):
     ingredientes = models.TextField(max_length=2000)
     cantidad_personas = models.IntegerField()
     elaboracion = models.TextField(max_length=2000)
-    imagen = models.ImageField(upload_to="admin-interface/img", blank=True)
+    imagen = models.ImageField(upload_to="media/recetas", blank=True)

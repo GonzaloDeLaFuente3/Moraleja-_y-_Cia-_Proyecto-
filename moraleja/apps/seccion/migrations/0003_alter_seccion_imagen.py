@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='seccion',
             name='imagen',
-            field=models.ImageField(blank=True, upload_to='admin-interface/img'),
+            field=models.ImageField(blank=True, upload_to='media/img'),
         ),
     ]

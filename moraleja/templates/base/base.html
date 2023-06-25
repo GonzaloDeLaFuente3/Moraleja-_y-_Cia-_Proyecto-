@@ -1,118 +1,216 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title> {% block titulo %}{% endblock %} </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Favicon -->
+    <link href="{% static 'img/moraleja_logo.png' %}" rel="icon">
 
-    <link rel="icon" href="{% static 'resources/logo_prueba.png' %}"/>
-    <link rel="stylesheet" href="{% static 'css/header-footer.css' %}">
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Lora:wght@600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
     {% block css %}{% endblock %}
-</head>
-<body>
 
-    <header class="fixed-top verde-claro d-flex justify-content-between">
-        <div id="logo" class="d-flex align-items-center">
-            <img src="{% static 'resources/logo_prueba.png' %}" alt="icono principal" />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/traductor-google.css' %}">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="body-top">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <small class="ms-4"><i class="fa fa-envelope me-2"></i>{{configuraciones.correo_electronico}}</small>
+            </div>
+            <div class="col-lg-5 px-0 text-end d-flex align-items-center">
+                <small>¡Seguinos en nuestras redes!:</small>
+                <a class="text-body ms-3" href="{{configuraciones.linklinkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                <a class="text-body ms-3" href="{{configuraciones.linkinstagram}}"><i class="fab fa-instagram"></i></a>
+                <small class="ms-5 ps-5">Idioma</small>
+                <div id="google_element" class="d-flex align-items-center">
+                    <img src="{% static 'resources/spain.png' %}" style="width: 25px; height: auto;" class="mx-2" id="es">
+                    <img src="{% static 'resources/reino-unido.png' %}" style="width: 25px; height: auto;" class="mx-2 d-none" id="en">
+                </div>
+            </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light ">
-            <div class="container-fluid">
-<!--                {% block logo %}{% endblock %}-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/index/" >INICIO</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">NOSOTROS</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#entrada">¿QUIÉNES SOMOS?</a></li>
-                                    <li><a class="dropdown-item" href="#labelMenus">HISTORIA</a></li>
-                                    <li><hr class="dropdown-divider" /></li>
-                                    <li><a class="dropdown-item" href="#postre">CONTACTO</a></li>
-                                </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">PRODUCTOS</a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#entrada">PALTA</a></li>
-                                    <li><a class="dropdown-item" href="#labelMenus">NARANJA</a></li>
-                                    <li><hr class="dropdown-divider" /></li>
-                                    <li><a class="dropdown-item" href="#postre">BENEFICIOS</a></li>
-                                </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="" >INSTALACIONES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="" >NOTICIAS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="" >SERVICIOS</a>
-                        </li>
-                        <li class="nav-item">
-                            <div id="google_element">
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
+        <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+            <a href="{% url 'index:index' %}" class="navbar-brand d-flex align-items-center ms-4 ms-lg-0">
+              <img src="{% static 'img/moraleja_logo.png' %}" style="width: 70px; height: auto;" class="me-2">
+                <img src="{% static 'img/moraleja_texto.png' %}" style="width: 150px; height: auto;" class="me-2">
 
-                            <a class="btn btn-light dropdown-toggle d-flex" data-bs-toggle="dropdown">
-                                <div class="flag">
-                                    <img src="resources/spain.png">
+            </a>
 
-                                </div>
-                                Español
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/index/">Salir</a>
-                            </div>
-                        </li>
-                    </ul>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="{% url 'index:index' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Inicio</a>
+                    <a href="{% url 'producto:productos' %}" class="nav-item nav-link">Productos</a>
+                    <div class="nav-item dropdown">
+                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Nosotros</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{% url 'index:index' %}#nosotros" class="dropdown-item">¿Quiénes somos?</a>
+                            <a href="{% url 'index:index' %}#historia" class="dropdown-item">Historia</a>
+                            <a href="{% url 'index:index' %}#servicios" class="dropdown-item">Servicios</a>
+                            <a href="{% url 'seccion:error_404_test' %}" class="dropdown-item">Error 404</a>
+                        </div>
+                    </div>
+                    <a href="{% url 'seccion:contacto' %}" class="nav-item nav-link">Contáctanos</a>
+                    <a href="{% url 'noticia:noticias' %}" class="nav-item nav-link">Noticias</a>
+                </div>
+                <div class="d-none d-lg-flex ms-2">
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
+                        <small class="fa fa-search text-body"></small>
+                    </a>
                 </div>
             </div>
         </nav>
-    </header>
+    </div>
+    <!-- Navbar End -->
 
-  <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <script>
         function loadGoogleTranslate() {
           new google.translate.TranslateElement({pageLanguage: 'es',
-            autoDisplay: 'true', includedLanguages:'es,en',
-            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
-        }, 'google_element');}
+            autoDisplay: false, includedLanguages:'es,en',
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+             multilanguagePage: true,
+
+        }, 'google_element');
+
+        setTimeout(function() {
+          document.body.style.top = '0px';
+
+            // Obtener el elemento select del widget de Google Translate
+            const selectElement = document.querySelector('#google_element select');
+            if(selectElement.value == "es"){
+                document.getElementById('es').classList.remove('d-none');
+                document.getElementById('en').classList.add('d-none');
+            }else{
+                document.getElementById('en').classList.remove('d-none');
+                document.getElementById('es').classList.add('d-none');
+            }
+
+            selectElement.addEventListener('change', function(event) {
+              const selectedValue = event.target.value;
+              if(selectedValue == "en"){
+                document.getElementById('en').classList.remove('d-none');
+                document.getElementById('es').classList.add('d-none');
+              }else{
+                document.getElementById('es').classList.remove('d-none');
+                document.getElementById('en').classList.add('d-none');
+              }
+            });
+        }, 1000);
+
+        }
     </script>
+
+    {% block page_header %}
+    {% endblock %}
 
     {% block contenido %}{% endblock %}
 
-    <footer class="verde-oscuro">
-        <br>
-            <div>
-                <nav class="menuEnlace">
-                    <ul class="breadcrumb" id="navFooter">
-                        <li><img src="" alt="icono" id="icono"></li>
-                        <li><a class="navbar-brand linkFooter" href="/index/">Inicio</a></li>
-                        <li><a class="navbar-brand linkFooter" href="">Sobre nosotros</a></li>
-                        <li><a class="navbar-brand linkFooter" href="">Contacto</a></li>
-                        <li><a class="navbar-brand linkFooter" href="">Ayuda</a></li>
-                    </ul>
-                </nav>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h1 class="fw-bold text-primary mb-4">F<span class="text-secondary">oo</span>dy</h1>
+                    <p>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita</p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Address</h4>
+                    <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
+                    <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                    <p><i class="fa fa-envelope me-3"></i>{{configuraciones.correo_electronico}}</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Our Services</a>
+                    <a class="btn btn-link" href="">Terms & Condition</a>
+                    <a class="btn btn-link" href="">Support</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-light mb-4">Newsletter</h4>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                    </div>
+                </div>
             </div>
-            <div id="labelFooter">
-                <small>Moraleja y CIA 2023</small> <br>
-                <small>Todos los derechos reservados</small>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">Your Site Name</a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                        Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                        <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    </div>
+                </div>
             </div>
-            <br>
-    </footer>
+        </div>
+    </div>
+    <!-- Footer End -->
 
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block js %}{% endblock %}
 </body>
 
-{% block js %}{% endblock %}
 </html>

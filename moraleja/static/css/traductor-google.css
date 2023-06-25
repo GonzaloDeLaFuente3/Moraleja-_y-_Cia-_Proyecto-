@@ -1,0 +1,43 @@
+/*BOTON DE GOOGLE*/
+
+#google_element {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.top-bar .text-end {
+  display: flex;
+  align-items: center;
+}
+
+body {
+  transition: top 0.1s ease;
+}
+
+#google_element select{
+ background: #F65005;
+
+ color: white;
+ border: none;
+ border-radius:5px;
+ padding:6px 8px
+ }
+ .VIpgJd-ZVi9od-l4eHX-hSRGPd, .VIpgJd-ZVi9od-ORHb-OEVmcd{
+ display:none !important;
+ }
+
+ .goog-te-gadget{
+    color:transparent!important;
+    user-select: none;
+    width: 90px;
+ }
+
+.goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb{
+ display:none !important;
+ }
+
+ #goog-gt-tt, .goog-te-balloon-frame, .VIpgJd-suEOdc{display: none !important;}
+.goog-text-highlight { background: none !important; box-shadow: none !important;}
+
+

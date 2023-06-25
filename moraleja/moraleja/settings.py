@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps.index',
     'apps.configuraciones',
     'colorfield',
+    'solo',
 ]
 
 X_FRAME_OPTIONS='SAMEORIGIN'
@@ -84,16 +85,6 @@ WSGI_APPLICATION = "moraleja.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": 'moraleja',
-        "USER": 'postgres',
-        "PASSWORD": 'Player8744',
-    }
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -128,10 +119,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/admin-interface/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'admin-interface'),]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
+
+# Media Files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = ''
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+try:
+    from .configuraciones_locales import *
+except ImportError:
+    raise Exception("El archivo de configuraciones locales es requerido para ejecutar este proyecto")

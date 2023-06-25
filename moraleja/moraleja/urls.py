@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-admin.site.site_header = 'Administración Moraleja'
-
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('index/', include('apps.index.urls')),
+    path('', include('apps.index.urls')),
+    path('productos/', include('apps.producto.urls', namespace='productos')),
+    path('noticias/', include('apps.noticia.urls', namespace='noticias')),
+    path('', include('apps.seccion.urls')),
 ]
+
+handler404 = 'apps.seccion.views.error_404'
