@@ -9,6 +9,7 @@ class Producto(models.Model):
     imagen = models.ImageField(upload_to="media/productos", blank=True)
     descripcion = models.TextField(max_length=1200)
     slug = AutoSlugField(populate_from='nombre', unique=True, null=True, default=None)
+    vigencia = models.BooleanField(default=True)
 
     def __str__(self):
         return self.nombre

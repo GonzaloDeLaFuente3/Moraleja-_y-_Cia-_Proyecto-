@@ -4,8 +4,14 @@ from apps.noticia.models import Noticia
 # Create your views here.
 
 def noticias(request):
-    noticias = Noticia.objects.all()
-    return render(request, 'noticias/noticias.html', {'noticias':noticias})
+    cant_noticias = Noticia.objects.count()
+    return render(request, 'noticias/noticias.html', {'cant_noticias':cant_noticias})
+
+def cargar_noticias(request, offset):
+    offset = int(offset)
+    noticias = Noticia.objects.all().order_by('-fecha_creacion')[offset:offset+3]  # Obtener las siguientes 3 noticias según el offset
+    return render(request, 'noticias/cargar_noticias.html', {'noticias': noticias})
+
 
 def detalle_noticia(request, slug):
     noticia = get_object_or_404(Noticia, slug=slug)

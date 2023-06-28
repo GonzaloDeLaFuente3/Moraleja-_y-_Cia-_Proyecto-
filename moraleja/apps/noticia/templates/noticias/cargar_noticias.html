@@ -1,0 +1,16 @@
+{% for noticia in noticias %}
+    <div class="col-lg-4 col-md-6 wow fadeInUp noticia-adicional" data-wow-delay="0.3s">
+        {% if noticia.imagen %}
+            <img class="img-fluid w-100" src="{{ noticia.imagen.url }}" alt="">
+        {% else %}
+            <img class="img-fluid w-100" src="" alt="no imagen">
+        {% endif %}
+        <div class="bg-light p-4">
+            <a class="d-block h5 lh-base mb-4" href="{% url 'noticia:detalle_noticia' noticia.slug %}">{{noticia.titulo}}</a>
+            <div class="text-muted border-top pt-4">
+                <small class="me-3"><i class="fa fa-user text-primary me-2"></i>{{noticia.autor_a}}</small>
+                <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>{{noticia.fecha_creacion}}</small>
+            </div>
+        </div>
+    </div>
+{% endfor %}

@@ -139,43 +139,35 @@
                 <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-<!--                    <img class="img-fluid" src="img/blog-1.jpg" alt="">-->
-                    <div class="bg-light p-4">
-                        <a class="d-block h5 lh-base mb-4" href="">How to cultivate organic fruits and vegetables in own firm</a>
-                        <div class="text-muted border-top pt-4">
-                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>Admin</small>
-                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>01 Jan, 2045</small>
-                        </div>
-                    </div>
-                </div>
+                {% for noticia in noticias %}
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-<!--                    <img class="img-fluid" src="img/blog-2.jpg" alt="">-->
+                    {% if noticia.imagen %}
+                        <img class="img-fluid" src="{{ noticia.imagen.url }}" alt="">
+                    {% else %}
+                        <img class="img-fluid" src="" alt="no imagen">
+                    {% endif %}
                     <div class="bg-light p-4">
-                        <a class="d-block h5 lh-base mb-4" href="">How to cultivate organic fruits and vegetables in own firm</a>
+                        <a class="d-block h5 lh-base mb-4" href="">{{noticia.titulo}}</a>
                         <div class="text-muted border-top pt-4">
-                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>Admin</small>
-                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>01 Jan, 2045</small>
+                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>{{noticia.autor_a}}</small>
+                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>{{noticia.fecha_creacion}}</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-<!--                    <img class="img-fluid" src="img/blog-3.jpg" alt="">-->
-                    <div class="bg-light p-4">
-                        <a class="d-block h5 lh-base mb-4" href="">How to cultivate organic fruits and vegetables in own firm</a>
-                        <div class="text-muted border-top pt-4">
-                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>Admin</small>
-                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>01 Jan, 2045</small>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
+            {% if cant_noticias > 3 %}
+            <div class="d-flex justify-content-center align-items-center">
+                <a class="btn btn-primary rounded-pill py-3 px-4 mt-5 wow fadeInUp" href="{% url 'noticia:noticias' %}" data-wow-delay="0.4s">Ver más noticias</a>
+            </div>
+            {% endif %}
+
         </div>
     </div>
     <!-- Blog End -->
 
     <!-- Desarrollo sostenible -->
-    <div class="container-fluid bg-light bg-icon my-5 py-6" id="desarrollo">
+    <div class="container-fluid bg-light bg-icon mt-5 py-6" id="desarrollo">
         <div class="container">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <h1 class="display-5 mb-3">Desarrollo sostenible</h1>

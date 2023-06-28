@@ -26,27 +26,29 @@
                 <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
             <div class="row g-4">
-                {% for noticia in noticias %}
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    {% if noticia.imagen %}
-                        <img class="img-fluid w-100" src="{{ noticia.imagen.url }}" alt="">
-                    {% else %}
-                        <img class="img-fluid w-100" src="" alt="no imagen">
-                    {% endif %}
-                    <div class="bg-light p-4">
-                        <a class="d-block h5 lh-base mb-4" href="{% url 'noticia:detalle_noticia' noticia.slug %}">{{noticia.titulo}}</a>
-                        <div class="text-muted border-top pt-4">
-                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>{{noticia.autor_a}}</small>
-                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>{{noticia.fecha_creacion}}</small>
-                        </div>
-                    </div>
+                <div class="row g-4" id="noticias-adicionales-container">
                 </div>
-                {% endfor %}
+                {% if cant_noticias > 3 %}
                 <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <a class="btn btn-primary rounded-pill py-3 px-5" href="">Cargar más noticias</a>
+                    <a class="btn btn-primary rounded-pill py-3 px-5"  id="cargar-noticias-btn" href="#" data-offset="3">Cargar noticias anteriores</a>
                 </div>
+                {% endif %}
+                <div class="col-12 text-center mt-3" id="no-more-noticias" style="display: none;">
+                    <div class="row justify-content-center">
+                      <div class="col-6">
+                        <div class="alert alert-success" role="alert">
+                          No hay más noticias por cargar
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
             </div>
         </div>
     </div>
     <!-- Blog End -->
+{% endblock %}
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/cargar-noticias.js' %}"></script>
 {% endblock %}

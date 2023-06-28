@@ -11,7 +11,7 @@ class Noticia(models.Model):
     autor_a = models.CharField(max_length=200)  #noticias
     cuerpo = models.TextField(max_length=2000)
     imagen = models.ImageField(upload_to="media/noticias", blank=True)  #noticias
-    epigrafe = models.CharField(max_length=200) #acompaña a la imagen
+    epigrafe = models.CharField(max_length=200, blank=True) #acompaña a la imagen
     fecha_creacion = models.DateTimeField(auto_now_add=True)    #noticias
 
     def __str__(self):
