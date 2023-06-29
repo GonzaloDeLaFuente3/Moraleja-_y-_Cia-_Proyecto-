@@ -8,13 +8,14 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Image">
+                    <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Envios a todo el pais">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-7">
-                                    <h1 class="display-2 mb-5 animated slideInDown">Organic Food Is Good For Health</h1>
-                                    <a href="{% url 'producto:productos' %}" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Ver productos</a>
+                                    <h1 class="display-2 mb-5 animated slideInDown">Realizamos envíos a todo el país</h1>
+                                    <a href="{% url 'seccion:contacto' %}" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Contáctanos</a>
+                                    <a href="{% url 'index:index' %}#servicios" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Servicios</a>
                                 </div>
                             </div>
                         </div>
@@ -26,9 +27,21 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-7">
-                                    <h1 class="display-2 mb-5 animated slideInDown">Natural Food Is Always Healthy</h1>
-                                    <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
-                                    <a href="" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Services</a>
+                                    <h1 class="display-2 mb-5 animated slideInDown">¡Recetas saludables riquísimas!</h1>
+                                    <a href="{% url 'productos:recetas' %}" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Ver recetas</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{% static 'img/carousel-2.jpg' %}" alt="Paltas Hass Organicas">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-lg-7">
+                                    <h1 class="display-2 mb-5 animated slideInDown">Paltas Hass Orgánicas</h1>
+                                    <a href="{% url 'producto:productos' %}" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Ver productos</a>
                                 </div>
                             </div>
                         </div>
@@ -52,13 +65,18 @@
 
 {% block contenido %}
 
+{% if nosotros.descripcion|default_if_none:'' %}
     <!-- Nosotros -->
     <div class="container-xxl py-5" id="nosotros">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                        <img class="img-fluid w-100" src="{% static 'img/nosotros.jpg' %}">
+                        {% if noticia.imagen %}
+                            <img class="img-fluid w-100" src="{{ nosotros.imagen.url }}" alt="imagen nosotros">
+                        {% else %}
+                            <img class="img-fluid w-100" src="" alt="no imagen">
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -69,7 +87,9 @@
         </div>
     </div>
     <!-- About End -->
+{% endif %}
 
+{% if historia.descripcion|default_if_none:'' %}
     <!-- Historia -->
     <div class="container-xxl py-5 bg-icon" id="historia">
         <div class="container">
@@ -80,13 +100,18 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                        <img class="img-fluid w-100" src="{% static 'img/historia.jpg' %}">
+                        {% if noticia.imagen %}
+                            <img class="img-fluid w-100" src="{{ historia.imagen.url }}" alt="imagen nuestra historia">
+                        {% else %}
+                            <img class="img-fluid w-100" src="" alt="no imagen">
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Historia End -->
+{% endif %}
 
 <!-- Produccion organica -->
     <div class="container-fluid bg-primary bg-icon mt-5 py-6">
@@ -114,6 +139,7 @@
         </div>
     </div>
 
+{% if servicios.count != 0 %}
     <!-- Servicios -->
     <div class="container-xxl py-5 bg-icon" id="servicios">
         <div class="container">
@@ -130,31 +156,33 @@
             </div>
         </div>
     </div>
+{% endif %}
 
     <!-- Noticias -->
+{% if cant_noticias > 0 %}
     <div class="container-xxl py-5">
         <div class="container">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <h1 class="display-5 mb-3">Noticias</h1>
                 <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
-            <div class="row g-4">
-                {% for noticia in noticias %}
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    {% if noticia.imagen %}
-                        <img class="img-fluid" src="{{ noticia.imagen.url }}" alt="">
-                    {% else %}
-                        <img class="img-fluid" src="" alt="no imagen">
-                    {% endif %}
-                    <div class="bg-light p-4">
-                        <a class="d-block h5 lh-base mb-4" href="">{{noticia.titulo}}</a>
-                        <div class="text-muted border-top pt-4">
-                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>{{noticia.autor_a}}</small>
-                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>{{noticia.fecha_creacion}}</small>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+            <div class="row g-4" id="noticias-adicionales-container">
+<!--                {% for noticia in noticias %}-->
+<!--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">-->
+<!--                    {% if noticia.imagen %}-->
+<!--                        <img class="img-fluid" src="{{ noticia.imagen.url }}" alt="">-->
+<!--                    {% else %}-->
+<!--                        <img class="img-fluid" src="" alt="no imagen">-->
+<!--                    {% endif %}-->
+<!--                    <div class="bg-light p-4">-->
+<!--                        <a class="d-block h5 lh-base mb-4" href="">{{noticia.titulo}}</a>-->
+<!--                        <div class="text-muted border-top pt-4">-->
+<!--                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>{{noticia.autor_a}}</small>-->
+<!--                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>{{noticia.fecha_creacion}}</small>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                {% endfor %}-->
             </div>
             {% if cant_noticias > 3 %}
             <div class="d-flex justify-content-center align-items-center">
@@ -165,7 +193,7 @@
         </div>
     </div>
     <!-- Blog End -->
-
+{% endif %}
     <!-- Desarrollo sostenible -->
     <div class="container-fluid bg-light bg-icon mt-5 py-6" id="desarrollo">
         <div class="container">
@@ -193,4 +221,7 @@
 
 {% endblock %}
 
-{% block js %}{% endblock %}
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/cargar-noticias.js' %}"></script>
+{% endblock %}

@@ -13,6 +13,9 @@ class Nosotros(SingletonModel):
     class Meta:
         verbose_name_plural = "Nosotros"
 
+    def __str__(self):
+        return "Nosotros"
+
 class Historia(SingletonModel):
 
     descripcion = models.TextField(max_length=1200)
@@ -20,6 +23,9 @@ class Historia(SingletonModel):
 
     class Meta:
         verbose_name_plural = "Historia"
+
+    def __str__(self):
+        return "Historia"
 
 class Servicios(models.Model):
     nombre = models.CharField(max_length=100)
