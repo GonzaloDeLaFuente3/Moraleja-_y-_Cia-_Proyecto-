@@ -72,7 +72,7 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                        {% if noticia.imagen %}
+                        {% if nosotros.imagen %}
                             <img class="img-fluid w-100" src="{{ nosotros.imagen.url }}" alt="imagen nosotros">
                         {% else %}
                             <img class="img-fluid w-100" src="" alt="no imagen">
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 class="display-5 mb-4">Nosotros</h1>
+                    <h1 class="display-5 mb-4">Sobre Nosotros</h1>
                     <p class="mb-4">{{nosotros.descripcion}}</p>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                        {% if noticia.imagen %}
+                        {% if historia.imagen %}
                             <img class="img-fluid w-100" src="{{ historia.imagen.url }}" alt="imagen nuestra historia">
                         {% else %}
                             <img class="img-fluid w-100" src="" alt="no imagen">
