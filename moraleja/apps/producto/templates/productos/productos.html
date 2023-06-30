@@ -15,63 +15,71 @@
     </div>
 {% endblock %}
 {% block contenido %}
-<!-- Product Start -->
-<div class="container-xxl py-5" id="productos">
-    <div class="container">
-        <div class="row g-0 gx-5 align-items-end justify-content-between">
-            <div class="col-lg-6">
-                <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                    <h1 class="display-5 mb-3">Productos</h1>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" id="buscar-item" placeholder="Buscar producto">
-                    <button class="btn btn-primary" id="btn-buscar-item" type="button">Buscar</button>
-                </div>
-            </div>
-        </div>
-        <div class="row g-0 gx-5 justify-content-end">
-            <div class="col-lg-4">
-                <div class="alert  alert-danger d-none text-center py-2 mb-3" role="alert" id="alerta-item-no-encontrado">
-                    El producto no fue encontrado.
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.3s">
-            {% for producto in productos %}
-                <div class="wow fadeInUp position-relative p-5 mt-4" data-wow-delay="0.3s">
-                    <div class="product-item">
-                        <div class="position-relative bg-light overflow-hidden">
-                            {% if producto.imagen %}
-                                <img class="img-fluid w-100" src="{{ producto.imagen.url }}" alt="">
-                            {% else %}
-                                <img class="img-fluid w-100" src="" alt="no imagen">
-                            {% endif %}
-                        </div>
-                        <div class="text-center p-4">
-                            <a class="d-block h5 mb-2" href="{% url 'producto:detalle_producto' producto.slug %}">{{producto.nombre}}</a>
-                            <span class="text-primary me-1">$19.00</span>
-                            <span class="text-body text-decoration-line-through">$29.00</span>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <small class="w-50 text-center py-2">
-                                <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>Ver beneficios</a>
-                            </small>
-                        </div>
+{% if productos.count != 0 %}
+    <div class="container-xxl py-5" id="productos">
+        <div class="container">
+            <div class="row g-0 gx-5 align-items-end justify-content-between">
+                <div class="col-lg-6">
+                    <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                        <h1 class="display-5 mb-3">Productos</h1>
                     </div>
                 </div>
-            {% endfor %}
+                <div class="col-lg-4">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="buscar-item" placeholder="Buscar producto">
+                        <button class="btn btn-primary" id="btn-buscar-item" type="button">Buscar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-0 gx-5 justify-content-end">
+                <div class="col-lg-4">
+                    <div class="alert  alert-danger d-none text-center py-2 mb-3" role="alert" id="alerta-item-no-encontrado">
+                        El producto no fue encontrado.
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.3s">
+                {% for producto in productos %}
+                    <div class="wow fadeInUp position-relative p-5 mt-4" data-wow-delay="0.3s">
+                        <div class="product-item">
+                            <div class="position-relative bg-light overflow-hidden">
+                                {% if producto.imagen %}
+                                    <img class="img-fluid w-100" src="{{ producto.imagen.url }}" alt="">
+                                {% else %}
+                                    <img class="img-fluid w-100" src="" alt="no imagen">
+                                {% endif %}
+                            </div>
+                            <div class="p-3">
+                                <a class="d-block h5 mb-2 text-center" href="{% url 'producto:detalle_producto' producto.slug %}">{{producto.nombre}}</a>
+                                <span class="text-body descripcion text-start">{{producto.descripcion}}</span>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="w-50 text-center border-end py-2">
+                                    <a class="text-body" href="{% url 'producto:beneficio_producto' producto.slug %}"><i class="fa fa-eye text-primary me-2"></i>Ver beneficios</a>
+                                </small>
+                                <small class="w-50 text-center py-2">
+                                    <a class="text-body" href="{% url 'producto:receta_producto' producto.slug %}"><i class="fas fa-apple-alt text-primary me-2"></i>Recetas</a>
+                                </small>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
-</div>
-<!-- Product End -->
+{% else %}
+    <div class="container-xxl pt-5 text-center">
+        <h5 class="text-body mb-4">No hay ningún producto registrado para mostrar.</h5>
+    </div>
+{% endif %}
 
-<div class="d-flex justify-content-center my-5">
-  <a href="{% url 'producto:recetas' %}" class="btn btn-primary me-2">Recetas saludables</a>
+<div class="d-flex justify-content-center align-items-center mb-5">
+    <a class="btn btn-primary rounded-pill py-3 px-4 mt-5 wow fadeInUp" href="{% url 'producto:recetas' %}" data-wow-delay="0.4s">Ver recetas saludables</a>
 </div>
 
 {% endblock %}
 {% block js %}
 <script src="{% static 'js/buscar-item.js' %}"></script>
+<script src="{% static 'js/limitar-caracteres.js' %}"></script>
 {% endblock %}

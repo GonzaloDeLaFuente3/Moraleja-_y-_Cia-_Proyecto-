@@ -8,7 +8,7 @@ class Seccion(models.Model):
 class Nosotros(SingletonModel):
 
     descripcion = models.TextField(max_length=1200)
-    imagen = models.ImageField(upload_to="media/img", blank=True)
+    imagen = models.ImageField(upload_to="img", blank=True)
 
     class Meta:
         verbose_name_plural = "Nosotros"
@@ -19,7 +19,7 @@ class Nosotros(SingletonModel):
 class Historia(SingletonModel):
 
     descripcion = models.TextField(max_length=1200)
-    imagen = models.ImageField(upload_to="media/img", blank=True)
+    imagen = models.ImageField(upload_to="img", blank=True)
 
     class Meta:
         verbose_name_plural = "Historia"

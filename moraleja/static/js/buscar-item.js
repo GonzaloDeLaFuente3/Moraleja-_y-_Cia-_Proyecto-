@@ -2,7 +2,6 @@ $(document).ready(function() {
     const inputBusqueda = document.getElementById('buscar-item');
     const btnBuscar = document.getElementById('btn-buscar-item');
 
-    // Agregar evento de escucha al presionar Enter en el campo de entrada
       inputBusqueda.addEventListener('keyup', function(event) {
         if (event.keyCode === 13) {
           event.preventDefault();

@@ -6,8 +6,8 @@ from autoslug import AutoSlugField
 class Producto(models.Model):
 
     nombre = models.CharField(max_length=51)
-    imagen = models.ImageField(upload_to="media/productos", blank=True)
-    descripcion = models.TextField(max_length=1200)
+    imagen = models.ImageField(upload_to="productos", blank=True)
+    descripcion = models.TextField(max_length=2500)
     slug = AutoSlugField(populate_from='nombre', unique=True, null=True, default=None)
     vigencia = models.BooleanField(default=True)
 
