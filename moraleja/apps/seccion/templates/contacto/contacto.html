@@ -44,15 +44,13 @@
                     <p class="mb-4">Por favor, completa los campos obligatorios. Los campos marcados con (*) son requeridos.</p>
 
 
-                    <form class="needs-validation">
+                    <form class="needs-validation" novalidate>
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="name" placeholder="Your Name" required>
                                     <label for="name">Nombre (*)</label>
                                     <div class="invalid-feedback">
-                                        <p >hola</p>
-
                                         Por favor, ingresa tu nombre.
                                     </div>
                                 </div>
@@ -110,4 +108,7 @@
     </div>
     <!-- Contact End -->
 
+{% endblock %}
+{% block js %}
+<script src="{% static 'js/validacion-form.js' %}"></script>
 {% endblock %}
