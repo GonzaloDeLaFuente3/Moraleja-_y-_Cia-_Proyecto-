@@ -26,9 +26,9 @@
                 <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-primary text-white d-flex flex-column justify-content-center h-100 p-5">
                         <h5 class="text-white">Call Us</h5>
-                        <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>{{configuraciones.telefono1}}</p>
                         <h5 class="text-white">Email Us</h5>
-                        <p class="mb-5"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p class="mb-5"><i class="fa fa-envelope me-3"></i>{{configuraciones.correo_electronico}}</p>
                         <h5 class="text-white">Office Address</h5>
                         <p class="mb-5"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
                         <h5 class="text-white">Follow Us</h5>
@@ -41,43 +41,62 @@
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                    <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <form>
+                    <p class="mb-4">Por favor, completa los campos obligatorios. Los campos marcados con (*) son requeridos.</p>
+
+
+                    <form class="needs-validation">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Nombre</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    <label for="name">Nombre (*)</label>
+                                    <div class="invalid-feedback">
+                                        <p >hola</p>
+
+                                        Por favor, ingresa tu nombre.
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <label for="email">Correo electrónico (*)</label>
+                                    <div class="invalid-feedback">
+                                         Por favor, ingresa una dirección de correo electrónico válida.
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="" placeholder="Número de teléfono">
-                                    <label for="">Teléfono</label>
+                                    <input type="text" class="form-control" id="phone" placeholder="Número de teléfono" required>
+                                    <label for="phone">Teléfono (*)</label>
+                                    <div class="invalid-feedback">
+                                        Por favor, ingresa un número de teléfono válido.
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="" placeholder="Subject">
-                                    <label for="">Empresa</label>
+                                    <input type="text" class="form-control" id="company" placeholder="Subject">
+                                    <label for="company">Empresa</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="" placeholder="Subject">
-                                    <label for="">Asunto</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                                    <label for="subject">Asunto (*)</label>
+                                    <div class="invalid-feedback">
+                                        Por favor, ingresa un asunto.
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px; resize: none;"></textarea>
-                                    <label for="message">Mensaje</label>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px; resize: none;" required></textarea>
+                                    <label for="message">Mensaje (*)</label>
+                                    <div class="invalid-feedback">
+                                       Por favor, ingresa un mensaje.
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-12">
