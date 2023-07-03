@@ -43,12 +43,12 @@
                 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
                     <p class="mb-4">Por favor, completa los campos obligatorios. Los campos marcados con (*) son requeridos.</p>
 
-
-                    <form class="needs-validation" novalidate>
+<!--                    action="https://formsubmit.co/gonchi3.gdlf@gmail.com"-->
+                    <form class="needs-validation" novalidate action="https://formsubmit.co/gonchi3.gdlf@gmail.com" method="POST">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    <input type="text" class="form-control" id="name" placeholder="Your Name" name="nombre" required>
                                     <label for="name">Nombre (*)</label>
                                     <div class="invalid-feedback">
                                         Por favor, ingresa tu nombre.
@@ -57,7 +57,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <input type="email" class="form-control" id="email" placeholder="Your Email" name="email" required>
                                     <label for="email">Correo electrónico (*)</label>
                                     <div class="invalid-feedback">
                                          Por favor, ingresa una dirección de correo electrónico válida.
@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="phone" placeholder="Número de teléfono" required>
+                                    <input type="text" class="form-control" id="phone" placeholder="Número de teléfono" name="teléfono" required>
                                     <label for="phone">Teléfono (*)</label>
                                     <div class="invalid-feedback">
                                         Por favor, ingresa un número de teléfono válido.
@@ -75,13 +75,14 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="company" placeholder="Subject">
+                                    <input type="text" class="form-control" id="company" name="empresa" placeholder="Subject">
                                     <label for="company">Empresa</label>
+                                    <div class="valid-feedback">Este campo no es obligatorio</div>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject" required>
+                                    <input type="text" class="form-control" id="subject" placeholder="Subject" name="asunto" required>
                                     <label for="subject">Asunto (*)</label>
                                     <div class="invalid-feedback">
                                         Por favor, ingresa un asunto.
@@ -90,7 +91,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px; resize: none;" required></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 200px; resize: none;" name="mensaje" required></textarea>
                                     <label for="message">Mensaje (*)</label>
                                     <div class="invalid-feedback">
                                        Por favor, ingresa un mensaje.
@@ -99,6 +100,10 @@
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
+<!--                                la linea de abajo es para donde lo redirige despues de mandar el correo correctamente -->
+                                <input type="hidden" name="_next" value="http://localhost:8000/apps/seccion/templates/contacto/contacto.html">
+                                <!--http://localhost:8000/apps/seccion/templates/contacto/contacto.html-->
+<!--                                <input type="hidden" name="_captcha" value="false"> para sacar el _captcha-->
                             </div>
                         </div>
                     </form>
@@ -107,6 +112,7 @@
         </div>
     </div>
     <!-- Contact End -->
+
 
 {% endblock %}
 {% block js %}
