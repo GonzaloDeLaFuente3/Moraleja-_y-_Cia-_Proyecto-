@@ -9,7 +9,7 @@ def noticias(request):
 
 def cargar_noticias(request, offset):
     offset = int(offset)
-    noticias = Noticia.objects.all().order_by('-fecha_creacion')[offset:offset+3]  # Obtener las siguientes 3 noticias según el offset
+    noticias = Noticia.objects.all().order_by('-fecha_creacion')[offset:offset+9]  # Obtener las siguientes 3 noticias según el offset
     return render(request, 'noticias/cargar_noticias.html', {'noticias': noticias})
 
 
