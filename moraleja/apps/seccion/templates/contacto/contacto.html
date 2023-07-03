@@ -45,8 +45,9 @@
                 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
                     <p class="mb-4">Por favor, completa los campos obligatorios. Los campos marcados con (*) son requeridos.</p>
 
-<!--                    action="https://formsubmit.co/gonchi3.gdlf@gmail.com"-->
-                    <form class="needs-validation" novalidate action="https://formsubmit.co/gonchi3.gdlf@gmail.com" method="POST">
+<!--                    action="https://formsubmit.co/gonchi3.gdlf@gmail.com" -->
+                    <form class="needs-validation" novalidate action="{% url 'seccion:enviar_formulario' %}" method="POST" >
+                        {% csrf_token %}
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -103,7 +104,7 @@
                             <div class="col-12">
                                 <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
 <!--                                la linea de abajo es para donde lo redirige despues de mandar el correo correctamente -->
-                                <input type="hidden" name="_next" value="http://localhost:8000/apps/seccion/templates/contacto/contacto.html">
+                                <input type="hidden" name="_next" value="{% url 'seccion:enviar_formulario' %}">
                                 <!--http://localhost:8000/apps/seccion/templates/contacto/contacto.html-->
 <!--                                <input type="hidden" name="_captcha" value="false"> para sacar el _captcha-->
                             </div>
@@ -119,4 +120,18 @@
 {% endblock %}
 {% block js %}
 <script src="{% static 'js/validacion-form.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{% if messages %}
+    {% for m in messages %}
+        {{m}}
+        <script>
+            Swal.fire({
+                "title": "Felicitaciones",
+                "text": "{{m}}",
+                "icon": "success"
+            })
+        </script>
+    {% endfor %}
+{% endif %}
 {% endblock %}

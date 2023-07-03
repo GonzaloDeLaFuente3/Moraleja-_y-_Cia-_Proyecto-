@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.urls import reverse
 
 # Create your views here.
 
@@ -10,3 +12,15 @@ def error_404(request, exception):
 
 def error_404_test(request): #pagina de prueba
     return render(request, '404/404.html')
+
+
+def enviar_formulario(request):
+    if request.method == 'POST':
+        # Procesa el formulario y envía el correo electrónico
+
+        # Agrega un mensaje de éxito
+        messages.success(request, 'El formulario se envió correctamente.')
+
+        return redirect(reverse("seccion:contacto"))
+
+    return render(request, 'contacto/contacto.html')
