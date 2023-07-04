@@ -1,18 +1,44 @@
 {% extends "base/base.html" %}
 {% load static %}
-{% block titulo %} Receta detalle {% endblock %}
+{% block titulo %} {{receta.nombre}} {% endblock %}
 {% block page_header %}
     <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown">Receta saludable {{receta.nombre}}</h1>
+            <h1 class="display-3 mb-3 animated slideInDown">{{receta.nombre}}</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a class="text-body" href="{% url 'index:index' %}">Inicio</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">Contáctanos</li>
+                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:productos' %}">Productos</a></li>
+                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:recetas' %}">Recetas saludables</a></li>
+                    <li class="breadcrumb-item text-dark active" aria-current="page">{{receta.nombre}}</li>
                 </ol>
             </nav>
         </div>
     </div>
 {% endblock %}
 {% block contenido %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                    {% if receta.imagen %}
+                        <img class="img-fluid w-100" src="{{ receta.imagen.url }}" alt="{{receta.slug}}">
+                    {% else %}
+                        <img class="img-fluid w-100" src="" alt="{{receta.slug}}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="section-header text-center">
+                    <h1 class="display-5 mb-4">{{receta.nombre}}</h1>
+                </div>
+                <p class="mb-3"><b>Cantidad de personas: </b> {{receta.cantidad_personas }}</p>
+                <p class="mb-3"><b>Ingredientes:</b> <br> {{receta.ingredientes|linebreaksbr }}</p>
+                <p class="mb-3"><b>Elaboración:</b> <br> {{receta.elaboracion|linebreaksbr}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
