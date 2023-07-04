@@ -19,7 +19,7 @@
 <div class="container-xxl py-5">
     <div class="container">
         <div class="row g-5 align-items-center">
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="about-img position-relative overflow-hidden p-5 pe-0">
                     {% if producto.imagen %}
                         <img class="img-fluid w-100" src="{{ producto.imagen.url }}" alt="{{producto.slug}}">
@@ -28,11 +28,11 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="section-header text-center">
                     <h1 class="display-5 mb-4">{{producto.nombre}}</h1>
                 </div>
-                <p class="mb-4">{{producto.descripcion}}</p>
+                {{producto.descripcion|safe}}
                 <a href="{% url 'producto:beneficio_producto' producto.slug %}" class="btn btn-primary me-2 rounded-pill">Beneficios</a>
                 <a href="{% url 'producto:receta_producto' producto.slug %}" class="btn btn-secondary rounded-pill">Recetas saludables</a>
             </div>

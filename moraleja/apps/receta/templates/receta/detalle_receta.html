@@ -35,7 +35,13 @@
                 </div>
                 <p class="mb-3"><b>Cantidad de personas: </b> {{receta.cantidad_personas }}</p>
                 <p class="mb-3"><b>Ingredientes:</b> <br> {{receta.ingredientes|linebreaksbr }}</p>
-                <p class="mb-3"><b>Elaboración:</b> <br> {{receta.elaboracion|linebreaksbr}}</p>
+                <p><b>Elaboración:</b></p>
+                <div>
+                  {{ receta.elaboracion|safe }}
+                </div>
+                <div>
+                  {{ receta.extra|safe }}
+                </div>
             </div>
         </div>
     </div>

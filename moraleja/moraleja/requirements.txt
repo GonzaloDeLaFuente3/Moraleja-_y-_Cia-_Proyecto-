@@ -11,3 +11,5 @@ django-autoslug == 1.9.9
 django-solo
 
 django-colorfield
+
+django-ckeditor == 6.6.1

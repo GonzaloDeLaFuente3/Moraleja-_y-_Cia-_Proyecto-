@@ -36,7 +36,6 @@ class Configuraciones(SingletonConfiguracion):
     telefono2 = models.CharField(max_length=250, blank=True)
     linklinkedin = models.URLField(max_length=200)
     linkinstagram = models.URLField(max_length=200)
-    correo_electronico = models.EmailField(max_length=50)
 
     class Meta:
         verbose_name_plural = "Configuraciones"

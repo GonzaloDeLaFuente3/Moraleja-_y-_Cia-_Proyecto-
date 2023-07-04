@@ -1,15 +1,17 @@
 {% extends "base/base.html" %}
 {% load static %}
-{% block titulo %} Beneficios  {% endblock %}
+{% block titulo %} {{producto.nombre}} | Beneficios {% endblock %}
 {% block css %}{% endblock %}
 {% block page_header %}
 <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
-        <h1 class="display-3 mb-3 animated slideInDown">Productos</h1>
+        <h1 class="display-3 mb-3 animated slideInDown">{{producto.nombre}} | Beneficios</h1>
         <nav aria-label="breadcrumb animated slideInDown">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a class="text-body" href="{% url 'index:index' %}">Inicio</a></li>
-                <li class="breadcrumb-item text-dark active" aria-current="page">Contáctanos</li>
+                <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:productos' %}">Productos</a></li>
+                <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:detalle_producto' producto.slug %}">{{ producto.nombre}}</a></li>
+                <li class="breadcrumb-item text-dark active" aria-current="page">Beneficios</li>
             </ol>
         </nav>
     </div>

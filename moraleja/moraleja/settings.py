@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'apps.configuraciones',
     'colorfield',
     'solo',
+    'ckeditor',
 ]
 
 X_FRAME_OPTIONS='SAMEORIGIN'

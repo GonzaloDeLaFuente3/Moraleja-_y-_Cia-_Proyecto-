@@ -47,12 +47,16 @@
     <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
             <div class="col-lg-7 px-5 text-start">
-                <small class="ms-4"><i class="fa fa-envelope me-2"></i>{{configuraciones.correo_electronico}}</small>
+                <small class="ms-4"><i class="fa fa-envelope me-2"></i>info@moralejasrl.com</small>
             </div>
             <div class="col-lg-5 px-0 text-end d-flex align-items-center">
                 <small>¡Seguinos en nuestras redes!:</small>
-                <a class="text-body ms-3" href="{{configuraciones.linklinkedin}}"><i class="fab fa-linkedin-in"></i></a>
-                <a class="text-body ms-3" href="{{configuraciones.linkinstagram}}"><i class="fab fa-instagram"></i></a>
+                {% if configuraciones.linklinkedin|default_if_none:'' %}
+                    <a class="text-body ms-3" href="{{configuraciones.linklinkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                {% endif %}
+                {% if configuraciones.linkinstagram|default_if_none:'' %}
+                    <a class="text-body ms-3" href="{{configuraciones.linkinstagram}}"><i class="fab fa-instagram"></i></a>
+                {% endif %}
                 <small class="ms-5 ps-5">Idioma</small>
                 <div id="google_element" class="d-flex align-items-center">
                     <img src="{% static 'resources/spain.png' %}" style="width: 25px; height: auto;" class="mx-2" id="es">
@@ -150,18 +154,26 @@
 
                     <p>Empresa familiar productora de paltas orgánicas, cítricos y más. 🍋🍊🥑</p>
                     <div class="d-flex pt-2">
+                        {% if configuraciones.telefono1|default_if_none:'' %}
                         <a class="btn btn-square btn-outline-light rounded-circle me-1" href="https://api.whatsapp.com/send?phone={{configuraciones.telefono1}}&text=%20Hola%2C%20me%20interesar%C3%ADa%20saber%20m%C3%A1s%20de%20sus%20productos!"><i class="fab fa-whatsapp"></i></a>
+                        {% endif %}
+                        {% if configuraciones.linkinstagram|default_if_none:'' %}
                         <a class="btn btn-square btn-outline-light rounded-circle me-1" href="{{configuraciones.linkinstagram}}"><i class="fab fa-instagram"></i></a>
+                        {% endif %}
+                        {% if configuraciones.linklinkedin|default_if_none:'' %}
                         <a class="btn btn-square btn-outline-light rounded-circle me-0" href="{{configuraciones.linklinkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Contacto</h4>
+                    {% if configuraciones.telefono1|default_if_none:'' %}
                     <p><i class="fa fa-phone-alt me-3"></i>+{{configuraciones.telefono1}}</p>
+                    {% endif %}
                     {% if configuraciones.telefono2|default_if_none:'' %}
                     <p><i class="fa fa-phone-alt me-3"></i>+{{configuraciones.telefono2}}</p>
                     {% endif %}
-                    <p><i class="fa fa-envelope me-3"></i>{{configuraciones.correo_electronico}}</p>
+                    <p><i class="fa fa-envelope me-3"></i>info@moralejasrl.com</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h4 class="text-light mb-4">Enlaces rápidos</h4>

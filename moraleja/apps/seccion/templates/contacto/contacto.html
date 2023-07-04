@@ -25,14 +25,16 @@
             <div class="row g-5 justify-content-center">
                 <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-primary text-white d-flex flex-column justify-content-center h-100 p-5">
-                        <h5 class="text-white">Llámenos</h5>
-                        <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>+{{configuraciones.telefono1}}</p>
-                        <h5 class="text-white">Mensaje directo por WhatsApp</h5>
-                        <div class="d-flex pt-2 mb-5">
-                            <a class="btn btn-square btn-outline-light rounded-circle me-1" href="https://api.whatsapp.com/send?phone={{configuraciones.telefono1}}&text=%20Hola%2C%20me%20interesar%C3%ADa%20saber%20m%C3%A1s%20de%20sus%20productos!"><i class="fab fa-whatsapp"></i></a>
-                        </div>
+                        {% if configuraciones.telefono1|default_if_none:'' %}
+                            <h5 class="text-white">Llámenos</h5>
+                            <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>+{{configuraciones.telefono1}}</p>
+                            <h5 class="text-white">Mensaje directo por WhatsApp</h5>
+                            <div class="d-flex pt-2 mb-5">
+                                <a class="btn btn-square btn-outline-light rounded-circle me-1" href="https://api.whatsapp.com/send?phone={{configuraciones.telefono1}}&text=%20Hola%2C%20me%20interesar%C3%ADa%20saber%20m%C3%A1s%20de%20sus%20productos!"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        {% endif %}
                         <h5 class="text-white">Envíanos un correo electrónico</h5>
-                        <p class="mb-5"><i class="fa fa-envelope me-3"></i>{{configuraciones.correo_electronico}}</p>
+                        <p class="mb-5"><i class="fa fa-envelope me-3"></i>info@moralejasrl.com</p>
                         <h5 class="text-white">Envíos a todo el país</h5>
                         <p class="mb-5"><i class="fa fa-map-marker-alt me-3"></i>Tucuman, Argentina</p>
                         <h5 class="text-white">Síguenos</h5>
@@ -103,10 +105,8 @@
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
-<!--                                la linea de abajo es para donde lo redirige despues de mandar el correo correctamente -->
                                 <input type="hidden" name="_next" value="{% url 'seccion:enviar_formulario' %}">
-                                <!--http://localhost:8000/apps/seccion/templates/contacto/contacto.html-->
-<!--                                <input type="hidden" name="_captcha" value="false"> para sacar el _captcha-->
+                                <input type="hidden" name="_captcha" value="false">
                             </div>
                         </div>
                     </form>

@@ -1,6 +1,6 @@
 from django.db import models
 from autoslug import AutoSlugField
-
+from ckeditor.fields import RichTextField
 from apps.producto.models import Producto
 
 
@@ -13,7 +13,8 @@ class Receta(models.Model):
     productos = models.ManyToManyField(Producto)
     ingredientes = models.TextField(max_length=2000)
     cantidad_personas = models.IntegerField()
-    elaboracion = models.TextField(max_length=2000)
+    elaboracion = RichTextField()
+    extra = RichTextField()
     imagen = models.ImageField(upload_to="recetas", blank=True)
 
     def __str__(self):
