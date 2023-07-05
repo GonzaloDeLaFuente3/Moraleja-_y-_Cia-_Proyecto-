@@ -2,14 +2,12 @@ from django.contrib import admin
 from django.db import models
 from apps.producto.models import Producto
 
-from apps.producto.models import BeneficioProducto
-
 
 # Register your models here.
 
 class ProductoAdmin(admin.ModelAdmin):
     list_display = ['nombre', 'vigencia'] #desde la lista
-    fields = ['nombre', 'imagen', 'descripcion'] #desde el editor
+    fields = ['nombre', 'imagen', 'descripcion', 'beneficios'] #desde el editor
 
     def get_fields(self, request, obj=None):
         if obj:
@@ -25,4 +23,3 @@ class ProductoAdmin(admin.ModelAdmin):
     # list_editable = ["fechaPedido", "cliente", "estadoPedido","envioDomicilio", "tiempoDemora", "cadete","total"]
 
 admin.site.register(Producto, ProductoAdmin)
-admin.site.register(BeneficioProducto)

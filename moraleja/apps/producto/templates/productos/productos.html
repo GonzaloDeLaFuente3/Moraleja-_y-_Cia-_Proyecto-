@@ -44,13 +44,13 @@
                         <div class="product-item">
                             <div class="position-relative bg-light overflow-hidden">
                                 {% if producto.imagen %}
-                                    <img class="img-fluid w-100" src="{{ producto.imagen.url }}" alt="">
+                                    <img class="img-fluid w-100" src="{{ producto.imagen.url }}" alt="{{producto.slug}}">
                                 {% else %}
-                                    <img class="img-fluid w-100" src="" alt="no imagen">
+                                    <img class="img-fluid w-100" src="" alt="{{producto.slug}}">
                                 {% endif %}
                             </div>
                             <div class="p-3">
-                                <a class="d-block h5 mb-2 text-center" href="{% url 'producto:detalle_producto' producto.slug %}">{{producto.nombre}}</a>
+                                <a class="d-block h5 mb-2 text-center" href="{% url 'producto:detalle_producto' producto.slug %}" translate="no">{{producto.nombre}}</a>
                                 <div class="descripcion">
                                     {{producto.descripcion|safe}}
                                 </div>

@@ -33,7 +33,10 @@
                 <div class="section-header text-center">
                     <h1 class="display-5 mb-4">{{receta.nombre}}</h1>
                 </div>
-                <p class="mb-3"><b>Cantidad de personas: </b> {{receta.cantidad_personas }}</p>
+                {% if receta.cantidad_personas|default_if_none:'' %}
+                    <p class="mb-3"><b>Cantidad de personas: </b> {{receta.cantidad_personas }}</p>
+                {% endif %}
+
                 <p class="mb-3"><b>Ingredientes:</b> <br> {{receta.ingredientes|linebreaksbr }}</p>
                 <p><b>Elaboración:</b></p>
                 <div>

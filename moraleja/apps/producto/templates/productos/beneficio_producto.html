@@ -5,12 +5,12 @@
 {% block page_header %}
 <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
     <div class="container">
-        <h1 class="display-3 mb-3 animated slideInDown">{{producto.nombre}} | Beneficios</h1>
+        <h1 class="display-3 mb-3 animated slideInDown"><span translate="no">{{producto.nombre}} </span> | Beneficios</h1>
         <nav aria-label="breadcrumb animated slideInDown">
             <ol class="breadcrumb mb-0">
                 <li class="breadcrumb-item"><a class="text-body" href="{% url 'index:index' %}">Inicio</a></li>
                 <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:productos' %}">Productos</a></li>
-                <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:detalle_producto' producto.slug %}">{{ producto.nombre}}</a></li>
+                <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:detalle_producto' producto.slug %}" translate="no">{{ producto.nombre}}</a></li>
                 <li class="breadcrumb-item text-dark active" aria-current="page">Beneficios</li>
             </ol>
         </nav>
@@ -18,4 +18,25 @@
 </div>
 {% endblock %}
 {% block contenido %}
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                    {% if producto.imagen %}
+                        <img class="img-fluid w-100" src="{{ producto.imagen.url }}" alt="{{producto.slug}}">
+                    {% else %}
+                        <img class="img-fluid w-100" src="" alt="{{producto.slug}}">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="section-header text-center">
+                    <h1 class="display-5 mb-4">Beneficios</h1>
+                </div>
+                {{producto.beneficios|safe}}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

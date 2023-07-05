@@ -1,8 +1,0 @@
-__pycache__/
-db.sqlite3
-.idea/
-media/
-venv/
-
-moraleja/configuraciones_locales.py
-moraleja\moraleja\configuraciones_locales.py

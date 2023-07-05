@@ -32,10 +32,10 @@ class SingletonConfiguracion(models.Model):
 
 class Configuraciones(SingletonConfiguracion):
 
-    telefono1 = models.CharField(max_length=250)
-    telefono2 = models.CharField(max_length=250, blank=True)
-    linklinkedin = models.URLField(max_length=200)
-    linkinstagram = models.URLField(max_length=200)
+    telefono_1 = models.CharField(max_length=250)
+    telefono_2 = models.CharField(max_length=250, blank=True)
+    link_linkedin = models.URLField(max_length=200)
+    link_instagram = models.URLField(max_length=200)
 
     class Meta:
         verbose_name_plural = "Configuraciones"

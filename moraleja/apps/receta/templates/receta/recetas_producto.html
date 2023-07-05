@@ -58,7 +58,9 @@
                                 <div class="text-center">
                                     <a class="d-block h5 mb-2" href="{% url 'producto:detalle_receta' receta.slug %}">{{receta.nombre}}</a>
                                 </div>
-                                <span class="text-body"><b>Ingredientes:</b> <br> {{receta.ingredientes|linebreaksbr }}</span>
+                                <div class="descripcion">
+                                    {{receta.ingredientes}}
+                                </div>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <small class="w-50 text-center py-2">
@@ -87,4 +89,5 @@
 {% endblock %}
 {% block js %}
 <script src="{% static 'js/buscar-item.js' %}"></script>
+<script src="{% static 'js/limitar-caracteres.js' %}"></script>
 {% endblock %}

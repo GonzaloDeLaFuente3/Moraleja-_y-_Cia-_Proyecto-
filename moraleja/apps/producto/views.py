@@ -18,6 +18,7 @@ def detalle_producto(request, slug):
 
 def beneficio_producto(request, slug):
     producto = get_object_or_404(Producto, slug=slug)
+
     return render(request, 'productos/beneficio_producto.html', {'producto':producto})
 
 def receta_producto(request, slug):

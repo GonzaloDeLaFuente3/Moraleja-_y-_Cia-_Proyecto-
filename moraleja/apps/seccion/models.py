@@ -1,5 +1,6 @@
 from django.db import models
 from solo.models import SingletonModel
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 class Seccion(models.Model):
@@ -7,7 +8,7 @@ class Seccion(models.Model):
 
 class Nosotros(SingletonModel):
 
-    descripcion = models.TextField(max_length=1200)
+    descripcion = RichTextField()
     imagen = models.ImageField(upload_to="img", blank=True)
 
     class Meta:
@@ -18,7 +19,7 @@ class Nosotros(SingletonModel):
 
 class Historia(SingletonModel):
 
-    descripcion = models.TextField(max_length=1200)
+    descripcion = RichTextField()
     imagen = models.ImageField(upload_to="img", blank=True)
 
     class Meta:

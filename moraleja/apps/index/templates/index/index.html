@@ -1,6 +1,6 @@
 {% extends "base/base.html" %}
 {% load static %}
-{% block titulo %} Moraleja Y Compañia {% endblock %}
+{% block titulo %} Moraleja Y Compañía{% endblock %}
 {% block css %}{% endblock %}
 {% block page_header %}
     <!-- Carousel Start -->
@@ -8,7 +8,7 @@
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Envios a todo el pais">
+                    <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Envios a todo el pais carousel">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-start">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{% static 'img/carousel-2.jpg' %}" alt="Image">
+                    <img class="w-100" src="{% static 'img/carousel-2.jpg' %}" alt="Recetas saludables carousel">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-start">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{% static 'img/carousel-2.jpg' %}" alt="Paltas Hass Organicas">
+                    <img class="w-100" src="{% static 'img/carousel-2.jpg' %}" alt="Paltas Hass Organicas carousel">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-start">
@@ -75,13 +75,13 @@
                         {% if nosotros.imagen %}
                             <img class="img-fluid w-100" src="{{ nosotros.imagen.url }}" alt="imagen nosotros">
                         {% else %}
-                            <img class="img-fluid w-100" src="" alt="no imagen">
+                            <img class="img-fluid w-100" src="" alt="imagen nosotros">
                         {% endif %}
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <h1 class="display-5 mb-4">Sobre Nosotros</h1>
-                    <p class="mb-4">{{nosotros.descripcion}}</p>
+                    <p class="mb-4">{{nosotros.descripcion|safe}}</p>
                 </div>
             </div>
         </div>
@@ -96,14 +96,14 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <h1 class="display-5 mb-4">Nuestra historia</h1>
-                    <p class="mb-4">{{historia.descripcion}}</p>
+                    <p class="mb-4">{{historia.descripcion|safe}}</p>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img position-relative overflow-hidden p-5 pe-0">
                         {% if historia.imagen %}
                             <img class="img-fluid w-100" src="{{ historia.imagen.url }}" alt="imagen nuestra historia">
                         {% else %}
-                            <img class="img-fluid w-100" src="" alt="no imagen">
+                            <img class="img-fluid w-100" src="" alt="imagen nuestra historia">
                         {% endif %}
                     </div>
                 </div>
@@ -125,7 +125,7 @@
                     consumo.
                     Asimismo, se reciclan los residuos orgánicos para generar abono natural, se promueve el uso responsable del
                     agua y la conservación de la flora y fauna de la zona.
-                    Moraleja y Compañía se destaca, principalmente, por sus deliciosas <strong> Paltas Hass Orgánicas </strong> que son resultado
+                    Moraleja y Compañía se destaca, principalmente, por sus deliciosas <strong> Paltas Hass Orgánicas </strong>  que son resultado
                     de la integración del proceso productivo sostenible en conjunción con las inmejorables condiciones naturales,
                     climáticas y ambientales de sus fincas, que le otorgan un sabor único a las paltas, siendo más cremosas y
                     de mayor tamaño que las convencionales, lo que las hace perfectas para el consumo directo y para la elaboración
@@ -164,25 +164,8 @@
         <div class="container">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                 <h1 class="display-5 mb-3">Noticias</h1>
-                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
             </div>
             <div class="row g-4" id="noticias-adicionales-container">
-<!--                {% for noticia in noticias %}-->
-<!--                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">-->
-<!--                    {% if noticia.imagen %}-->
-<!--                        <img class="img-fluid" src="{{ noticia.imagen.url }}" alt="">-->
-<!--                    {% else %}-->
-<!--                        <img class="img-fluid" src="" alt="no imagen">-->
-<!--                    {% endif %}-->
-<!--                    <div class="bg-light p-4">-->
-<!--                        <a class="d-block h5 lh-base mb-4" href="">{{noticia.titulo}}</a>-->
-<!--                        <div class="text-muted border-top pt-4">-->
-<!--                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>{{noticia.autor_a}}</small>-->
-<!--                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>{{noticia.fecha_creacion}}</small>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                {% endfor %}-->
             </div>
             {% if cant_noticias > 3 %}
             <div class="d-flex justify-content-center align-items-center">
@@ -203,7 +186,7 @@
             </div>
             <div class="row g-4">
                 <div class="wow fadeInUp text-center" data-wow-delay="0.3s">
-                    <img class="img-fluid mb-4" src="{% static 'img/desarrollo_sostenible.png' %}" alt="">
+                    <img class="img-fluid mb-4" src="{% static 'img/desarrollo_sostenible.png' %}" alt="desarrollo sostenible">
                 </div>
             </div>
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.4s" >
@@ -216,12 +199,8 @@
         </div>
     </div>
     <!-- Feature End -->
-
-
-
 {% endblock %}
 
 {% block js %}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'js/cargar-noticias.js' %}"></script>
 {% endblock %}

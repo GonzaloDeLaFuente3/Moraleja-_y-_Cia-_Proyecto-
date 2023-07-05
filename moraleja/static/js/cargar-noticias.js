@@ -15,10 +15,10 @@ $(document).ready(function() {
       url: url,
       success: function(data) {
         $('#noticias-adicionales-container').append(data);
-        $('#cargar-noticias-btn').data('offset', offset+3); // Actualizar el atributo data-offset del botón
+        $('#cargar-noticias-btn').data('offset', offset+9); // Actualizar el atributo data-offset del botón
 
-        // Verificar si hay menos de 3 noticias adicionales y ocultar el botón
-        if ($(data).filter('.noticia-adicional').length < 3) {
+        // Verificar si hay menos de 9 noticias adicionales y ocultar el botón
+        if ($(data).filter('.noticia-adicional').length < 1) {
             $('#no-more-noticias').show();
           $('#cargar-noticias-btn').hide();
 

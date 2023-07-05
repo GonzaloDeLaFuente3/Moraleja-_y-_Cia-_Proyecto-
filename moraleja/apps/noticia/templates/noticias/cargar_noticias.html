@@ -2,7 +2,7 @@
     <div class="col-lg-4 col-md-6 wow fadeInUp noticia-adicional" data-wow-delay="0.3s">
         <a href="{% url 'noticia:detalle_noticia' noticia.slug %}">
             {% if noticia.imagen %}
-                <img class="img-fluid w-100" src="{{ noticia.imagen.url }}" alt="">
+                <img class="img-fluid w-100" src="{{ noticia.imagen.url }}" alt="{{noticia.slug}}">
             {% else %}
                 <img class="img-fluid w-100" src="" alt="{{noticia.slug}}">
             {% endif %}

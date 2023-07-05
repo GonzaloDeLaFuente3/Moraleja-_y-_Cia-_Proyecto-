@@ -12,9 +12,9 @@ class Receta(models.Model):
     slug = AutoSlugField(populate_from='nombre', unique=True, null=True, default=None)
     productos = models.ManyToManyField(Producto)
     ingredientes = models.TextField(max_length=2000)
-    cantidad_personas = models.IntegerField()
+    cantidad_personas = models.IntegerField(blank=True)
     elaboracion = RichTextField()
-    extra = RichTextField()
+    extra = RichTextField(blank=True)
     imagen = models.ImageField(upload_to="recetas", blank=True)
 
     def __str__(self):
