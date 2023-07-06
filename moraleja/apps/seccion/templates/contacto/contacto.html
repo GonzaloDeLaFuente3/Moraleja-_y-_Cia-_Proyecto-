@@ -46,6 +46,7 @@
                 </div>
                 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
                     <p class="mb-4">Por favor, completa los campos obligatorios. Los campos marcados con (*) son requeridos.</p>
+                    <!-- action="https://formsubmit.co/gonchi3.gdlf@gmail.com" -->
                     <form class="needs-validation" novalidate action="{% url 'seccion:enviar_formulario' %}" method="POST" >
                         {% csrf_token %}
                         <div class="row g-3">
@@ -104,6 +105,8 @@
                             <div class="col-12">
                                 <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Send Message</button>
                                 <input type="hidden" name="_next" value="{% url 'seccion:enviar_formulario' %}">
+                                <!--http://localhost:8000/apps/seccion/templates/contacto/contacto.html-->
+<!--                                <input type="hidden" name="_captcha" value="false"> para sacar el _captcha-->
                                 <input type="hidden" name="_captcha" value="false">
                             </div>
                         </div>
