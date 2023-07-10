@@ -1,10 +1,10 @@
 /*BOTON DE GOOGLE*/
 
+/*
 #google_element {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 10px;
-}
+}*/
 
 .top-bar .text-end {
   display: flex;
@@ -21,7 +21,7 @@ body {
  color: white;
  border: none;
  border-radius:5px;
- padding:6px 8px
+ padding:8px 8px
  }
  .VIpgJd-ZVi9od-l4eHX-hSRGPd, .VIpgJd-ZVi9od-ORHb-OEVmcd{
  display:none !important;

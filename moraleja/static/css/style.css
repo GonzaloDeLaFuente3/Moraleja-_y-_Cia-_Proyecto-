@@ -1,3 +1,31 @@
+#m_logo{
+    width: 95px;
+    height: auto;
+}
+
+#m_texto{
+    width: 175px;
+    height: auto;
+}
+
+@keyframes zoomAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.carousel-image {
+  animation: zoomAnimation 10s infinite;
+}
+
+
 .capitalize {
   text-transform: capitalize;
 }
@@ -120,7 +148,7 @@
 }
 
 .navbar .navbar-nav .nav-link {
-    padding: 25px 15px;
+    padding: 15px 15px;
     color: #555555;
     font-weight: 500;
     outline: none;
@@ -139,11 +167,13 @@
     }
 
     .navbar .navbar-nav .nav-link {
-        padding: 10px 0;
+        padding: 10px 15;
     }
+
+
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1235px) {
     .navbar .nav-item .dropdown-menu {
         display: block;
         visibility: hidden;
@@ -160,12 +190,14 @@
         transition: .5s;
         opacity: 1;
     }
+
+
 }
 
 
 /*** Header ***/
 .carousel-caption {
-    top: 0;
+    top: 5rem;
     left: 0;
     right: 0;
     bottom: 0;
@@ -178,7 +210,7 @@
 
 .carousel-control-prev,
 .carousel-control-next {
-    width: 15%;
+    width: 5%;
 }
 
 .carousel-control-prev-icon,
@@ -203,6 +235,30 @@
         object-fit: cover;
     }
 }
+
+@media (max-width: 406px) {
+    #m_logo{
+        width: 70px;
+    }
+
+    #m_texto{
+        width: 150px;
+    }
+
+    .carousel-caption {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index: 1;
+    }
+}
+
+
 
 .page-header {
     padding-top: 12rem;

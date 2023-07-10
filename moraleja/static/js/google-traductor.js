@@ -1,6 +1,4 @@
 
-
-
 function loadGoogleTranslate() {
   new google.translate.TranslateElement({pageLanguage: 'es',
     autoDisplay: false, includedLanguages:'es,en',
