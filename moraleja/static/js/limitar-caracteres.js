@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  var maxCaracteres = 120; // Número máximo de caracteres permitidos
+  var maxCaracteres = 140; // Número máximo de caracteres permitidos
   var descripciones = document.getElementsByClassName('descripcion');
 
   for (var i = 0; i < descripciones.length; i++) {

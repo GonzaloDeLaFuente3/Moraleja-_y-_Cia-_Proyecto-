@@ -3,8 +3,6 @@
         <a href="{% url 'noticia:detalle_noticia' noticia.slug %}">
             {% if noticia.imagen %}
                 <img class="img-fluid w-100" src="{{ noticia.imagen.url }}" alt="{{noticia.slug}}">
-            {% else %}
-                <img class="img-fluid w-100" src="" alt="{{noticia.slug}}">
             {% endif %}
             <div class="bg-light p-4">
                 <a class="d-block h5 lh-base mb-4" href="{% url 'noticia:detalle_noticia' noticia.slug %}">{{noticia.titulo}}</a>

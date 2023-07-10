@@ -5,12 +5,12 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown">Noticias</h1>
+            <h1 class="display-3 mb-3 animated slideInDown text-white text-shadow">Noticias</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'index:index' %}">Inicio</a></li>
-                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'noticia:noticias' %}">Noticias</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">{{noticia.titulo}}</li>
+                    <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'index:index' %}">Página de Inicio</a></li>
+                    <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'noticia:noticias' %}">Noticias</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">{{noticia.titulo}}</li>
                 </ol>
             </nav>
         </div>
@@ -35,7 +35,7 @@
                     <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>{{noticia.fecha_creacion}}</small>
                 </div>
             </div>
-            <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
+            <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s" style="text-align: justify;">
                 <div class="section-header text-center">
                     <h1 class="display-6 mb-4">{{noticia.titulo}}</h1>
                 </div>

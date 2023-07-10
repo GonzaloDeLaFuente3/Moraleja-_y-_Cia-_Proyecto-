@@ -4,13 +4,13 @@
 {% block page_header %}
     <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown">Recetas con {{ producto.nombre}}</h1>
+            <h1 class="display-3 mb-3 animated slideInDown text-white text-shadow">Recetas con {{ producto.nombre}}</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'index:index' %}">Inicio</a></li>
-                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:productos' %}">Productos</a></li>
-                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'producto:detalle_producto' producto.slug %}">{{ producto.nombre}}</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">Recetas saludables</li>
+                    <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'index:index' %}">Página de Inicio</a></li>
+                    <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'producto:productos' %}">Productos</a></li>
+                    <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'producto:detalle_producto' producto.slug %}">{{ producto.nombre}}</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Recetas saludables</li>
                 </ol>
             </nav>
         </div>
@@ -23,11 +23,6 @@
     <div class="container">
         {% if recetas.count > 0 %}
             <div class="row g-0 gx-5 align-items-end justify-content-between">
-                <div class="col-lg-6">
-                    <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                        <h1 class="display-5 mb-3">Recetas saludables</h1>
-                    </div>
-                </div>
                 <div class="col-lg-4">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" id="buscar-item" placeholder="Buscar receta">
@@ -58,7 +53,7 @@
                                 <div class="text-center">
                                     <a class="d-block h5 mb-2" href="{% url 'producto:detalle_receta' receta.slug %}">{{receta.nombre}}</a>
                                 </div>
-                                <div class="descripcion">
+                                <div class="descripcion" style="text-align: justify;">
                                     {{receta.ingredientes}}
                                 </div>
                             </div>

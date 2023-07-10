@@ -4,11 +4,11 @@
 {% block page_header %}
     <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown">Productos</h1>
+            <h1 class="display-3 mb-3 animated slideInDown text-white text-shadow">Productos</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'index:index' %}">Inicio</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">Contáctanos</li>
+                    <li class="breadcrumb-item"><a class="text-shadow seccion-link" href="{% url 'index:index' %}">Página de Inicio</a></li>
+                    <li class="breadcrumb-item active text-white text-shadow" aria-current="page">Productos</li>
                 </ol>
             </nav>
         </div>
@@ -19,11 +19,6 @@
     <div class="container-xxl py-5" id="productos">
         <div class="container">
             <div class="row g-0 gx-5 align-items-end justify-content-between">
-                <div class="col-lg-6">
-                    <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                        <h1 class="display-5 mb-3">Productos</h1>
-                    </div>
-                </div>
                 <div class="col-lg-4">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" id="buscar-item" placeholder="Buscar producto">
@@ -45,13 +40,11 @@
                             <div class="position-relative bg-light overflow-hidden">
                                 {% if producto.imagen %}
                                     <img class="img-fluid w-100" src="{{ producto.imagen.url }}" alt="{{producto.slug}}">
-                                {% else %}
-                                    <img class="img-fluid w-100" src="" alt="{{producto.slug}}">
                                 {% endif %}
                             </div>
                             <div class="p-3">
                                 <a class="d-block h5 mb-2 text-center" href="{% url 'producto:detalle_producto' producto.slug %}" translate="no">{{producto.nombre}}</a>
-                                <div class="descripcion">
+                                <div class="descripcion" style="text-align: justify;">
                                     {{producto.descripcion|safe}}
                                 </div>
 
@@ -64,7 +57,6 @@
                                     <a class="text-body" href="{% url 'producto:receta_producto' producto.slug %}"><i class="fas fa-apple-alt text-primary me-2"></i>Recetas</a>
                                 </small>
                             </div>
-
                         </div>
                     </div>
                 {% endfor %}

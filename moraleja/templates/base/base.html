@@ -44,28 +44,26 @@
 
 
     <!-- Navbar Start -->
-    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid fixed-top px-0 bg-white shadow">
         <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
             <div class="col-lg-7 px-5 text-start">
                 <small class="ms-4"><i class="fa fa-envelope me-2"></i>info@moralejasrl.com</small>
             </div>
             <div class="col-lg-5 px-0 text-end d-flex align-items-center">
-                <small>¡Seguinos en nuestras redes!:</small>
+                <small> <b>¡Seguinos en nuestras redes!:</b> </small>
                 <a class="text-body ms-3" href="{{configuraciones.link_linkedin}}"><i class="fab fa-linkedin-in"></i></a>
                 <a class="text-body ms-3" href="{{configuraciones.link_instagram}}"><i class="fab fa-instagram"></i></a>
                 <small class="ms-5 ps-5">Idioma</small>
-                <div id="google_element" class="d-flex align-items-center">
-                    <img src="{% static 'img/spain.png' %}" style="width: 25px; height: auto;" class="mx-2" id="es" alt="logo español">
-                    <img src="{% static 'img/reino-unido.png' %}" style="width: 25px; height: auto;" class="mx-2 d-none" id="en" alt="logo ingles">
+                <a class="btn btn-secondary rounded-circle mx-2 d-none" href="" id="reload"><i class="bi bi-arrow-clockwise"></i></a>
+                <div id="google_element" class="d-flex align-items-center mx-3">
                 </div>
             </div>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5">
             <a href="{% url 'index:index' %}" class="navbar-brand d-flex align-items-center ms-4 ms-lg-0">
-              <img src="{% static 'img/moraleja_logo.png' %}" style="width: 70px; height: auto;" class="me-2" alt="moraleja logo">
-                <img src="{% static 'img/moraleja_texto.png' %}" style="width: 150px; height: auto;" class="me-2" alt="moraleja logo 2">
-
+                <img src="{% static 'img/moraleja_logo.png' %}" style="width: 95px; height: auto;" class="me-2" alt="moraleja logo">
+                <img src="{% static 'img/moraleja_texto.png' %}" style="width: 175px; height: auto;" class="me-2" alt="moraleja logo 2">
             </a>
 
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -73,7 +71,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="{% url 'index:index' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Inicio</a>
+                    <a href="{% url 'index:index' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %} ">Página de Inicio</a>
                     <div class="nav-item dropdown">
                         <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Productos</a>
                         <div class="dropdown-menu m-0">
@@ -81,15 +79,15 @@
                             <a href="{% url 'producto:recetas' %}" class="dropdown-item">Recetas saludables</a>
                         </div>
                     </div>
+                    <a href="{% url 'seccion:servicios' %}" class="nav-item nav-link">Servicios</a>
                     <div class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sobre nosotros</a>
+                        <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sobre Nosotros</a>
                         <div class="dropdown-menu m-0">
-                            <a href="{% url 'index:index' %}#nosotros" class="dropdown-item">¿Quiénes somos?</a>
+                            <a href="{% url 'index:index' %}#nosotros" class="dropdown-item">Sobre Nosotros</a>
                             <a href="{% url 'index:index' %}#historia" class="dropdown-item">Historia</a>
-                            <a href="{% url 'index:index' %}#servicios" class="dropdown-item">Servicios</a>
                         </div>
                     </div>
-                    <a href="{% url 'seccion:contacto' %}" class="nav-item nav-link">Contáctanos</a>
+                    <a href="{% url 'seccion:contacto' %}" class="nav-item nav-link capitalize">Contáctanos</a>
                     <a href="{% url 'noticia:noticias' %}" class="nav-item nav-link">Noticias</a>
                 </div>
             </div>
@@ -98,42 +96,7 @@
     <!-- Navbar End -->
 
     <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
-    <script>
-        function loadGoogleTranslate() {
-          new google.translate.TranslateElement({pageLanguage: 'es',
-            autoDisplay: false, includedLanguages:'es,en',
-            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-             multilanguagePage: true,
-
-        }, 'google_element');
-
-        setTimeout(function() {
-          document.body.style.top = '0px';
-
-            // Obtener el elemento select del widget de Google Translate
-            const selectElement = document.querySelector('#google_element select');
-            if(selectElement.value == "es"){
-                document.getElementById('es').classList.remove('d-none');
-                document.getElementById('en').classList.add('d-none');
-            }else{
-                document.getElementById('en').classList.remove('d-none');
-                document.getElementById('es').classList.add('d-none');
-            }
-
-            selectElement.addEventListener('change', function(event) {
-              const selectedValue = event.target.value;
-              if(selectedValue == "en"){
-                document.getElementById('en').classList.remove('d-none');
-                document.getElementById('es').classList.add('d-none');
-              }else{
-                document.getElementById('es').classList.remove('d-none');
-                document.getElementById('en').classList.add('d-none');
-              }
-            });
-        }, 1000);
-
-        }
-    </script>
+    <script src="{% static 'js/google-traductor.js' %}"></script>
 
     {% block page_header %}
     {% endblock %}
@@ -144,14 +107,11 @@
     <div class="container-fluid footer pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4 col-md-6">
                     <img src="{% static 'img/moraleja.png' %}" style="width: 170px; height: auto;" class="me-2" alt="moraleja logo footer">
 
                     <p>Empresa familiar productora de paltas orgánicas, cítricos y más. 🍋🍊🥑</p>
                     <div class="d-flex pt-2">
-                        {% if configuraciones.telefono_1|default_if_none:'' %}
-                        <a class="btn btn-square btn-outline-light rounded-circle me-1" href="https://api.whatsapp.com/send?phone={{configuraciones.telefono_1}}&text=%20Hola%2C%20me%20interesar%C3%ADa%20saber%20m%C3%A1s%20de%20sus%20productos!"><i class="fab fa-whatsapp"></i></a>
-                        {% endif %}
                         {% if configuraciones.link_instagram|default_if_none:'' %}
                         <a class="btn btn-square btn-outline-light rounded-circle me-1" href="{{configuraciones.link_instagram}}"><i class="fab fa-instagram"></i></a>
                         {% endif %}
@@ -160,26 +120,21 @@
                         {% endif %}
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Contacto</h4>
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="text-light mb-4">Contacto</h2>
                     {% if configuraciones.telefono_1|default_if_none:'' %}
                     <p><i class="fa fa-phone-alt me-3"></i>+{{configuraciones.telefono_1}}</p>
                     {% endif %}
                     {% if configuraciones.telefono_2|default_if_none:'' %}
                     <p><i class="fa fa-phone-alt me-3"></i>+{{configuraciones.telefono_2}}</p>
                     {% endif %}
+                    {% if configuraciones.telefono_1|default_if_none:'' %}
+                    <a href="https://api.whatsapp.com/send?phone={{configuraciones.telefono_1}}&text=%20Hola%2C%20me%20interesar%C3%ADa%20saber%20m%C3%A1s%20de%20sus%20productos!"><i class="fab fa-whatsapp me-3 mb-3"></i> WhatsApp</a>
+                    {% endif %}
                     <p translate="no"><i class="fa fa-envelope me-3"></i>info@moralejasrl.com</p>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Enlaces rápidos</h4>
-                    <a class="btn btn-link" href="{% url 'index:index' %}#nosotros">Sobre nosotros</a>
-                    <a class="btn btn-link" href="{% url 'index:index' %}#servicios">Servicios</a>
-                    <a class="btn btn-link" href="{% url 'producto:productos' %}">Productos</a>
-                    <a class="btn btn-link" href="{% url 'producto:recetas' %}">Recetas saludables</a>
-                    <a href="{% url 'noticia:noticias' %}" class="btn btn-link">Noticias</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Envíos</h4>
+                <div class="col-lg-4 col-md-6">
+                    <h2 class="text-light mb-4 capitalize">Envíos</h2>
                     <p>Envíos a todo el país. (Argentina)</p>
                 </div>
             </div>

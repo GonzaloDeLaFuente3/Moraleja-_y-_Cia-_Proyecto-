@@ -1,4 +1,19 @@
+.capitalize {
+  text-transform: capitalize;
+}
 
+
+.text-shadow {
+    text-shadow: 6px 6px 4px rgba(0, 0, 0, 0.7);
+  }
+
+.seccion-link {
+    color: white;
+}
+
+.seccion-link:hover {
+    color: grey;
+}
 /********** Template CSS **********/
 :root {
     --primary: #3CB815;
@@ -192,7 +207,7 @@
 .page-header {
     padding-top: 12rem;
     padding-bottom: 6rem;
-    background: url(../img/carousel-1.jpg) top right no-repeat;
+    background: url(../img/fill.jpg) top right no-repeat;
     background-size: cover;
 }
 
@@ -312,7 +327,7 @@
 }
 
 .testimonial-carousel .owl-nav {
-    margin-top: 30px;
+    margin-top: 0px;
     display: flex;
     justify-content: center;
 }
@@ -320,15 +335,15 @@
 .testimonial-carousel .owl-nav .owl-prev,
 .testimonial-carousel .owl-nav .owl-next {
     margin: 0 12px;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--dark);
     border: 2px solid var(--primary);
     border-radius: 50px;
-    font-size: 18px;
+    font-size: 25px;
     transition: .5s;
 }
 
@@ -342,7 +357,7 @@
 /*** Footer ***/
 .footer {
     color: #999999;
-    background: #181319;
+    background: #0c0217;
 }
 
 .footer .btn.btn-link {

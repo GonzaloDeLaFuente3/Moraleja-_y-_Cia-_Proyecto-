@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
 from .models import Configuraciones
 from django import forms
 
@@ -29,3 +31,21 @@ class ConfiguracionAdmin(admin.ModelAdmin):
 @admin.register(Configuraciones)
 class SiteSettingsAdmin(ConfiguracionAdmin):
     pass
+
+class CustomUserAdmin(UserAdmin):
+    # ...
+
+    def get_queryset(self, request):
+        # Obtén el queryset original de usuarios
+        queryset = super().get_queryset(request)
+
+        # Si el usuario actual es "staff", filtra los usuarios y excluye al "super admin"
+        if request.user.is_staff:
+            queryset = queryset.exclude(username__in=["super_admin_1", "super_admin_2"])
+
+        return queryset
+
+
+# Registra el modelo de usuario personalizado en el administrador de Django
+admin.site.unregister(User)
+admin.site.register(User, CustomUserAdmin)

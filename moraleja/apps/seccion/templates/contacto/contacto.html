@@ -4,11 +4,11 @@
 {% block page_header %}
     <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown">Contáctanos</h1>
+            <h1 class="display-3 mb-3 animated slideInDown text-white text-shadow capitalize">Contáctanos</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a class="text-body" href="{% url 'index:index' %}">Inicio</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">Contáctanos</li>
+                    <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'index:index' %}">Página de Inicio</a></li>
+                    <li class="breadcrumb-item text-white active capitalize" aria-current="page">Contáctanos</li>
                 </ol>
             </nav>
         </div>
@@ -18,34 +18,31 @@
     <!-- Contact Start -->
     <div class="container-xxl py-6">
         <div class="container">
-            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="display-5 mb-3">Contáctanos</h1>
+            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s">
                 <p>Si deseas obtener más información sobre nuestros productos, puedes dejarnos tus consultas o comunicarte directamente con nosotros.</p>
             </div>
             <div class="row g-5 justify-content-center">
                 <div class="col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-primary text-white d-flex flex-column justify-content-center h-100 p-5">
                         {% if configuraciones.telefono_1|default_if_none:'' %}
-                            <h5 class="text-white">Llámenos</h5>
-                            <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>+{{configuraciones.telefono_1}}</p>
-                            <h5 class="text-white">Mensaje directo por WhatsApp</h5>
+                            <h5 class="text-white capitalize">Llámenos</h5>
+                            <p><i class="fa fa-phone-alt me-3"></i>+{{configuraciones.telefono_1}}</p>
+                            <p class="mb-5"><i class="fa fa-phone-alt me-3"></i>+{{configuraciones.telefono_2}}</p>
+                            <h5 class="text-white">Comuníquese por nuestras redes</h5>
                             <div class="d-flex pt-2 mb-5">
-                                <a class="btn btn-square btn-outline-light rounded-circle me-1" href="https://api.whatsapp.com/send?phone={{configuraciones.telefono_1}}&text=%20Hola%2C%20me%20interesar%C3%ADa%20saber%20m%C3%A1s%20de%20sus%20productos!"><i class="fab fa-whatsapp"></i></a>
+                                <a class="btn btn-square btn-outline-light rounded-circle me-3" href="{{configuraciones.link_instagram}}"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-square btn-outline-light rounded-circle me-3" href="{{configuraciones.link_linkedin}}"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-square btn-outline-light rounded-circle me-0" href="https://api.whatsapp.com/send?phone={{configuraciones.telefono_1}}&text=%20Hola%2C%20me%20interesar%C3%ADa%20saber%20m%C3%A1s%20de%20sus%20productos!"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         {% endif %}
                         <h5 class="text-white">Envíanos un correo electrónico</h5>
                         <p class="mb-5"><i class="fa fa-envelope me-3"></i>info@moralejasrl.com</p>
                         <h5 class="text-white">Envíos a todo el país</h5>
-                        <p class="mb-5"><i class="fa fa-map-marker-alt me-3"></i>Tucuman, Argentina</p>
-                        <h5 class="text-white">Síguenos</h5>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-square btn-outline-light rounded-circle me-1" href="{{configuraciones.link_instagram}}"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-square btn-outline-light rounded-circle me-0" href="{{configuraciones.link_linkedin}}"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+                        <p class="mb-5"><i class="fa fa-map-marker-alt me-3"></i>Argentina</p>
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                    <p class="mb-4">Por favor, completa los campos obligatorios. Los campos marcados con (*) son requeridos.</p>
+                    <p class="mb-4"><b>Por favor, completa los campos obligatorios. Los campos marcados con (*) son requeridos.</b></p>
                     <!-- action="https://formsubmit.co/gonchi3.gdlf@gmail.com" -->
                     <form class="needs-validation" novalidate action="{% url 'seccion:enviar_formulario' %}" method="POST" >
                         {% csrf_token %}
