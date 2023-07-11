@@ -18,7 +18,13 @@
 {% block contenido %}
 <div class="container-xxl py-5">
     <div class="container">
-        <div class="row g-5 align-items-center">
+        <div class="row g-5 align-items-center mb-3">
+            <div class="col-lg-7 wow fadeInUp justificar" data-wow-delay="0.5s">
+                <div class="section-header text-center">
+                    <h1 class="display-5 mb-4">{{producto.nombre}}</h1>
+                </div>
+                {{producto.descripcion|safe}}
+            </div>
             <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="about-img position-relative overflow-hidden p-5 pe-0">
                     {% if producto.imagen %}
@@ -28,15 +34,9 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s" style="text-align: justify;">
-                <div class="section-header text-center">
-                    <h1 class="display-5 mb-4">{{producto.nombre}}</h1>
-                </div>
-                {{producto.descripcion|safe}}
-                <a href="{% url 'producto:beneficio_producto' producto.slug %}" class="btn btn-primary me-2 rounded-pill">Beneficios</a>
-                <a href="{% url 'producto:receta_producto' producto.slug %}" class="btn btn-secondary rounded-pill">Recetas saludables</a>
-            </div>
         </div>
+        <a href="{% url 'producto:beneficio_producto' producto.slug %}" class="btn btn-primary me-2 rounded-pill">Beneficios</a>
+        <a href="{% url 'producto:receta_producto' producto.slug %}" class="btn btn-secondary rounded-pill">Recetas saludables</a>
     </div>
 </div>
 

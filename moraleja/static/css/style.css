@@ -1,3 +1,7 @@
+.justificar{
+    text-align: justify;
+}
+
 #m_logo{
     width: 95px;
     height: auto;
@@ -236,13 +240,16 @@
     }
 }
 
-@media (max-width: 406px) {
+@media (max-width: 412px) {
     #m_logo{
         width: 70px;
     }
 
     #m_texto{
         width: 150px;
+    }
+    .h5{
+        font-size: 1rem;
     }
 
     .carousel-caption {
@@ -258,7 +265,18 @@
     }
 }
 
+@media (max-width: 280px) {
+    #m_logo{
+        width: 30px;
+    }
 
+    #m_texto{
+        width: 110px;
+    }
+    .h5{
+        font-size: 0.8rem;
+    }
+}
 
 .page-header {
     padding-top: 12rem;
