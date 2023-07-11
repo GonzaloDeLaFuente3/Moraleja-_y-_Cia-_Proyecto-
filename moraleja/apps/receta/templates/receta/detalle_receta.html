@@ -4,13 +4,13 @@
 {% block page_header %}
     <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown text-white text-shadow">{{receta.nombre}}</h1>
+            <h1 class="display-3 mb-3 animated slideInDown text-white text-shadow capitalize">{{receta.nombre}}</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'index:index' %}">Página de Inicio</a></li>
                     <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'producto:productos' %}">Productos</a></li>
-                    <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'producto:recetas' %}">Recetas saludables</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">{{receta.nombre}}</li>
+                    <li class="breadcrumb-item"><a class="seccion-link capitalize" href="{% url 'producto:recetas' %}">Recetas saludables</a></li>
+                    <li class="breadcrumb-item text-white active capitalize" aria-current="page">{{receta.nombre}}</li>
                 </ol>
             </nav>
         </div>

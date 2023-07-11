@@ -4,12 +4,12 @@
 {% block page_header %}
     <div class="container-fluid page-header wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
-            <h1 class="display-3 mb-3 animated slideInDown text-white text-shadow">{{ producto.nombre}}</h1>
+            <h1 class="display-3 mb-3 animated slideInDown text-white text-shadow capitalize">{{ producto.nombre}}</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'index:index' %}">Página de Inicio</a></li>
                     <li class="breadcrumb-item"><a class="seccion-link" href="{% url 'producto:productos' %}">Productos</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">{{ producto.nombre}}</li>
+                    <li class="breadcrumb-item text-white active capitalize" aria-current="page">{{ producto.nombre}}</li>
                 </ol>
             </nav>
         </div>
@@ -21,7 +21,7 @@
         <div class="row g-5 align-items-center mb-3">
             <div class="col-lg-7 wow fadeInUp justificar" data-wow-delay="0.5s">
                 <div class="section-header text-center">
-                    <h1 class="display-5 mb-4">{{producto.nombre}}</h1>
+                    <h1 class="display-5 mb-4 capitalize">{{producto.nombre}}</h1>
                 </div>
                 {{producto.descripcion|safe}}
             </div>
